@@ -1,0 +1,45 @@
+{
+  "name": "shave",
+  "description": "Shave is a javascript plugin that truncates multi-line text within a html element based on set max height",
+  "main": "dist/shave.js",
+  "authors": [
+    "Jeff Wainwright <jjwainwright2@gmail.com> (http://jeffry.in)"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "ellipsis",
+    "truncate",
+    "truncation",
+    "truncated",
+    "semantic",
+    "js",
+    "content",
+    "shorten",
+    "javascript",
+    "text",
+    "shave",
+    "trim"
+  ],
+  "homepage": "https://github.com/dollarshaveclub/shave",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src/*",
+    "gulpfile.js",
+    "rollup.config.js"
+  ],
+  "version": "1.0.0",
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.0",
+    "commit": "ae4349e7547e7c24f7323b44880ce44e7857c2d1"
+  },
+  "_source": "https://github.com/dollarshaveclub/shave.git",
+  "_target": "^1.0.0",
+  "_originalSource": "shave",
+  "_direct": true
+}

@@ -20,8 +20,11 @@
                         <?php foreach ($announcements as $value): ?>
                             <div class="announces-card">
                                 <div class="announces-card-date">
+                                    <?php if(!empty($value['start_date'])) { ?>
                                     <span class="start_date"><?=$value['start_date']?></span>
+                                    <?php } if(!empty($value['end_date'])) { ?>
                                     <span class="end_date"><?=$value['end_date']?></span>
+                                    <?php } ?>
                                 </div>
                                 <h3 class="announces-card-title">
                                     <a href="<?=base_url('announcements/index/').$value['slug_'.LANG]?>"><?=$value['title_'.LANG]?></a>

@@ -55,7 +55,9 @@
                             {{title_<?=LANG?>}} {{fname_<?=LANG?>}}
                         </a>
                     </h3>
-                    <p class="personal-card-subtitle">{{rank_<?=LANG?>}}</p>
+                    <p class="personal-card-subtitle">
+                        <span>{{rank_<?=LANG?>}}</span>
+                    </p>
                 </div>
             </div>
         </div>

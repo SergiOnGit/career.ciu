@@ -52,22 +52,23 @@ class Home extends CI_Controller {
 		/* POLL */
 		$this->load->helper('cookie');
 		$data['poll'] = $this->Front_model->getPoll();
-		if(isset($data['poll']['id']) && $data['poll']['id'] == get_cookie('poll'))
-			$data['poll'] = [];
+		if(isset($data['poll']['id']) && $data['poll']['id'] == get_cookie('poll')){
+			$data['poll']['answered'] = 1;
+		}
 
 		$data['announcements'] = $this->Front_announcements_model->getAnnouncementsLimit(5);
 		$this->load->view('front/home', $data);
 	}
 
-	public function poll($id)
+	public function poll($id,$poll_id = null)
 	{
 		if(isset($id) && $id != ''){
 				$this->Front_model->incrementResponseCount($id);
 
 				$cookie= array(
 		           'name'   => 'poll',
-		           'value'  => $id,
-		           'expire' => '3600',
+		           'value'  => $poll_id,
+		           'expire' => 3600 * 24 * 3,
 		       );
 	 
 		       $this->input->set_cookie($cookie);

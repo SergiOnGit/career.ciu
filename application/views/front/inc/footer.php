@@ -1,16 +1,18 @@
 	<footer id="footer" class="footer">
-        <div class="uk-grid wrap">
-            <div class="uk-width-1-2 uk-width-medium-3-10">
-                ONESIGNAL
-            </div>
-            <div class="uk-width-medium-4-10">
-                <p class="copyright">&copy; <?=$translate['copyright']?></p>
-            </div>
-            <div class="uk-width-1-2 uk-width-medium-3-10">
-                <div class="footer-right-logo">
-                    <a href="https://indygo.ge">
-                        <img src="/public/assets/images/indygo-logo.png" alt="Indygo Studio Logo">
-                    </a>
+        <div class="wrap">
+            <div class="uk-grid">
+                <div class="uk-width-1-2 uk-width-medium-3-10">
+                    ONESIGNAL
+                </div>
+                <div class="uk-width-medium-4-10">
+                    <p class="copyright">&copy; <?=$translate['copyright']?></p>
+                </div>
+                <div class="uk-width-1-2 uk-width-medium-3-10">
+                    <div class="footer-right-logo">
+                        <a href="https://indygo.ge">
+                            <img src="/public/assets/images/indygo-logo.png" alt="Indygo Studio Logo">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,8 +33,8 @@
     <script src="/public/assets/bower_components/uikit/js/components/datepicker.min.js"></script>
     <!-- SLICK JS -->
     <script src="/public/assets/bower_components/slick-carousel/slick/slick.min.js"></script>
-    <!-- SHAVE JS -->
-    <script src="/public/assets/bower_components/shave/dist/shave.min.js"></script>
+    <!-- TRUNK8 JS -->
+    <script src="/public/assets/bower_components/trunk8/trunk8.js"></script>
     <!-- COUNTUP JS -->
     <script src="/public/assets/bower_components/countUp.js/dist/countUp.min.js"></script>
     <!-- UNDERSCORE JS -->

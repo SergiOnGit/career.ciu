@@ -9,7 +9,7 @@
                     <img src="<?=$row['image']?>" alt="<?=$row['title_'.LANG]?>">
                     <div class="uk-overlay-panel uk-overlay-fade uk-flex uk-flex-left uk-flex-top uk-padding-remove">
                         <div class="slider-caption-box-wrap">
-                            <h3 class="slider-caption-title hasvideo">
+                            <h3 class="slider-caption-title <?php if($row['video']) { echo 'hasvideo'; } ?>">
                                 <?php if($row['link_'.LANG]) { ?>
                                     <a href="<?=$row['link_'.LANG]?>" target="<?=$row['target_'.LANG]?>"><?=$row['title_'.LANG]?></a>
                                 <?php } else { ?>
@@ -27,12 +27,14 @@
                 </li>
                 <?php endforeach; ?>
             </ul>
+            <?php if(count($slider) > 1): ?>
             <div class="slider-nav-wrap uk-hidden-small">
                 <div class="slider-nav">
                     <i class="uk-icon-chevron-left" data-uk-slideshow-item="previous"></i>
                     <i class="uk-icon-chevron-right" data-uk-slideshow-item="next"></i>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
     <!-- SLIDER END -->

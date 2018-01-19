@@ -50,7 +50,7 @@
 		                		<div class="contact-info-icon"><i class="uk-icon-fax"></i></div>
 		                		<div class="contact-info-text">
 			                		<?php foreach ($contact['fax'] as $value): ?>
-				                    	<a href="tel:<?=$value?>"><?=$value?></a>
+				                    	<p><a href="tel:<?=$value?>"><?=$value?></a></p>
 			                		<?php endforeach ?>
 			                	</div>
 		                    </div>	

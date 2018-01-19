@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Page title -->
-    <title>career.ciu.edu.ge</title>
+    <title>science.ciu.edu.ge</title>
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" type="image/ico" href="<?=site_url('public')?>/admin/images/favicon.ico" />

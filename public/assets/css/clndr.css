@@ -105,7 +105,7 @@
 }
 #mini-clndr .clndr .days-container .days .day.event:hover,
 #mini-clndr .clndr .days-container .days .empty.event:hover {
-    background-color: #e53935;
+    background-color: #b70004;
     color: #fff;
 }
 #mini-clndr .clndr .days-container .days .day.adjacent-month,
@@ -117,7 +117,7 @@
     vertical-align: bottom;
 }
 #mini-clndr .clndr .days-container .days .headers {
-    background-color: #e53935;
+    background-color: #b70004;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -131,7 +131,7 @@
 }
 #mini-clndr .calendar-day-row {
     padding-bottom: 3px;
-    border-bottom: 2px solid #e53935;
+    border-bottom: 2px solid #b70004;
 }
 #mini-clndr .day.adjacent-month.next-month .calendar-day-row {
     border-bottom: 2px solid #abc5cf;
@@ -139,7 +139,7 @@
 #mini-clndr .announces-count {
     width: 25px;
     height: 25px;
-    background: #e53935;
+    background: #b70004;
     border-radius: 50%;
     display: inline-block;
     line-height: 25px;
@@ -204,7 +204,7 @@
 }
 #mini-clndr .clndr .days-container .events .event-header {
   width: 100%;
-  background-color: #e53935;
+  background-color: #b70004;
   padding-top: 11px;
   padding-bottom: 11px;
   text-align: center;

@@ -11,7 +11,7 @@
     <!-- DYNAMIC METAS -->
     <?php
         if(isset($data)) {
-            $title = 'CAREER.CIU.EDU.GE - '.$data['title_'.LANG];
+            $title = 'SCIENCE.CIU.EDU.GE - '.$data['title_'.LANG];
             if(isset($data['descr_'.LANG])) {
                 $descr = $data['descr_ge'];
             } else {
@@ -23,7 +23,7 @@
                 $image = base_url().'public/assets/images/logo.png';
             }
         } else {
-            $title = 'CAREER.CIU.EDU.GE';
+            $title = 'SCIENCE.CIU.EDU.GE';
             $descr = '';
             $image = base_url().'public/assets/images/logo.png';
         }
@@ -36,7 +36,7 @@
     <meta property="og:image" content="<?=$image?>" />
 
     <meta property="og:url" content="<?=base_url()?>" />
-    <meta property="og:site_name" content="CAREER.CIU.EDU.GE" />
+    <meta property="og:site_name" content="SCIENCE.CIU.EDU.GE" />
     <meta property="og:type" content="website" />
     <meta property="fb:app_id" content="1907169869568312"/>
 

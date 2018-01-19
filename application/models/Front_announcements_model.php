@@ -8,6 +8,7 @@ class Front_announcements_model extends CI_Model {
 		$this->db->order_by('start_date', 'DESC');
 		$this->db->where('active_'.LANG, 1);
 		$this->db->where('end_date >', date('Y-m-d H:i:s'));
+		$this->db->or_where('start_date >', date('Y-m-d H:i:s'));
 		$query = $this->db->get();
 		return $query->result_array();
 	}
@@ -20,6 +21,7 @@ class Front_announcements_model extends CI_Model {
 		$this->db->order_by('start_date', 'DESC');
 		$this->db->where('active_'.LANG, 1);
 		$this->db->where('end_date >', date('Y-m-d H:i:s'));
+		$this->db->or_where('start_date >', date('Y-m-d H:i:s'));
 		$this->db->limit(1);
 		$query = $this->db->get();
 		return $query->row_array();
@@ -31,6 +33,7 @@ class Front_announcements_model extends CI_Model {
 		$this->db->order_by('start_date', 'DESC');
 		$this->db->where('active_'.LANG, 1);
 		$this->db->where('end_date >', date('Y-m-d H:i:s'));
+		$this->db->or_where('start_date >', date('Y-m-d H:i:s'));
 		$this->db->limit($limit);
 		$query = $this->db->get();
 		return $query->result_array();

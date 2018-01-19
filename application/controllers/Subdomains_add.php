@@ -4,7 +4,7 @@ class News extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
-		if(!$this->input->post('domain') == 'career.ciu.ge') { exit(); }
+		if(!$this->input->post('domain') == 'science.ciu.ge') { exit(); }
 		$this->load->model(array('Configs_ad_model', 'News_ad_model', 'Announces_ad_model'));
 	}
 

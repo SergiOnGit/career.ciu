@@ -38,15 +38,27 @@ jQuery(document).ready(function($) {
         $(end_date).append(moment(end_text).format('D MMMM'));
     });
 
+    var menuWrap = $('#menu-wrap');
+    if(page == '' || page == 'home') {
+        $(window).resize(function(event) {
+            if($(window).width() > 767) {
+                menuWrap.css('margin-bottom', '-' + menuWrap.height() + 'px');
+            } else {
+                menuWrap.css('margin-bottom', '0');
+            }
+        }).resize();
+    }
+
     /* mobile menu */
     $('#mobile-menu-toggle').click(function(event) {
         $(this).find('i').toggle();
-        $('#menu-wrap').slideToggle();
+        menuWrap.slideToggle();
     });
     $('.menu-item-link.hassub').click(function(event) {
         event.preventDefault();
         $(this).next('.menu-sub-list').slideToggle();
     });
+
 
     /* search */
     $('#header-search-btn').click(function(event) {
@@ -184,21 +196,6 @@ jQuery(document).ready(function($) {
         });
     }
 
-    /* quiz */
-    $('#fixed-quiz-toggler, #fixed-quiz-mobile-toggler').click(function(event) {
-        $(this).find('i').toggle();
-        $('#fixed-quiz-box').toggleClass('show');
-        $('#fixed-quiz-question-box').toggleClass('show');
-        $('#mobile-widget-dim').toggleClass('show');
-        if($(window).width() < 768) {
-            $('body').toggleClass('overflow-hidden');
-        }
-    });
-
-    $('#mobile-widget-dim').click(function(event) {
-        $('#fixed-quiz-mobile-toggler').click();
-    });
-
     if($(window).width() < 768) {
         // element to detect scroll direction of
         var el = $(window),
@@ -219,6 +216,22 @@ jQuery(document).ready(function($) {
             lastY = currY;
         });
     }
+    
+    /* quiz */
+    $('#fixed-quiz-toggler, #fixed-quiz-mobile-toggler').click(function(event) {
+        $(this).find('i').toggle();
+        $('#fixed-quiz-box').toggleClass('show');
+        $('#fixed-quiz-question-box').toggleClass('show');
+        $('#mobile-widget-dim').toggleClass('show');
+        if($(window).width() < 768) {
+            $('body').toggleClass('overflow-hidden');
+        }
+    });
+
+    $('#mobile-widget-dim').click(function(event) {
+        $('#fixed-quiz-mobile-toggler').click();
+    });
+
 
     $('.fixed-quiz-answer-wrap').bind('click', function(event) {
         $('#fixed-quiz-answers').hide();
@@ -229,16 +242,16 @@ jQuery(document).ready(function($) {
         $(this).val(parseInt($(this).val())+1);
         var response_sum = parseInt($("#response_sum").val())+1;
         var selected_id = $(this).attr("data-id");
-        console.log(selected_id);
+        var poll_id = $("#fixed-quiz-box").attr("data-id");
         $.ajax({
           method: "GET",
-          url: "/Home/poll/" + selected_id,
+          url: "/Home/poll/" + selected_id + "/" + poll_id,
         }).done(function( msg ) {
             if(msg == 0) $(".fixed-quiz-box").remove();
             $('.fixed-quiz-vote-percent-box[data-id='+selected_id+']').addClass("chosen");
             $('input[name=poll]').each(function (e) {
                 var data_id = $(this).attr("data-id");
-                var prc = ($(this).val()*100/response_sum).toFixed(2);
+                var prc = ($(this).val()*100/response_sum).toFixed(0);
                 $('.fixed-quiz-vote-percent-box[data-id='+data_id+'] .uk-progress-bar').css("width",prc+'%');
                 $('.fixed-quiz-vote-percent-box[data-id='+data_id+'] .uk-progress-bar span').html(prc+'%');
             });
@@ -364,14 +377,16 @@ jQuery(document).ready(function($) {
 
     /* news cards */
     var news_card = $('.news-card');
-    var news_card_hover = $('.news-card-title a, .news-card-img');
+    var news_card_hover = $('.news-card-title, .news-card-img');
     news_card_hover.hover(function() {
     	$(this).parents('.news-card').addClass('hover');
     }, function() {
     	news_card.removeClass('hover');
     });
-    var news_card_title = $('.news-card-title');
-    news_card_title.shave(75);
+    var news_card_title = $('.news-card-title a');
+    news_card_title.trunk8({
+       lines: 3
+    });
     $('.news-card-date').each(function(index, el) {
         var oldDate = $(this).text();
         $(this).empty();
@@ -387,11 +402,15 @@ jQuery(document).ready(function($) {
 
     /* personal cards */
     var personal_card = $('.personal-card');
+    var personal_card_subtitle = $('.personal-card-subtitle span');
     var personal_card_hover = $('.personal-card-title a, .personal-card-img');
     personal_card_hover.hover(function() {
         $(this).parents('.personal-card').addClass('hover');
     }, function() {
         personal_card.removeClass('hover');
+    });
+    personal_card_subtitle.trunk8({
+       lines: 2
     });
 
     /* select2 init */
@@ -523,12 +542,14 @@ jQuery(document).ready(function($) {
                 var rendered = Mustache.to_html(template, { data: response });
                 loadNewsCards.append(rendered);
 
-                $('.news-card-title a, .news-card-img').hover(function() {
+                $('.news-card-title, .news-card-img').hover(function() {
                     $(this).parents('.news-card').addClass('hover');
                 }, function() {
                     $('.news-card').removeClass('hover');
                 });
-                $('.news-card-title').shave(75);
+                $('.news-card-title a').trunk8({
+                   lines: 3
+                });
 
                 if(response.length == 0) {
                     disableLoadMore = true;
@@ -640,12 +661,6 @@ jQuery(document).ready(function($) {
 
                 loadPersonalCards.append(rendered);
 
-                $('.personal-card-title a, .personal-card-img').hover(function() {
-                    $(this).parents('.personal-card').addClass('hover');
-                }, function() {
-                    $('.personal-card').removeClass('hover');
-                });
-
                 if(response.length == 0) {
                     disableLoadMore = true;
                     if(personalOffset == 0) {
@@ -657,21 +672,21 @@ jQuery(document).ready(function($) {
                     nodata.hide();
                 }
                 cardsLoader.hide();
+                
+                $('.personal-card-title a, .personal-card-img').hover(function() {
+                    $(this).parents('.personal-card').addClass('hover');
+                }, function() {
+                    $('.personal-card').removeClass('hover');
+                });
+                $('.personal-card-subtitle span').trunk8({
+                   lines: 2
+                });
             });
         }
 
         personalFilter();
     }
 });
-
-/*$(window).bind("load", function() {
-    $(".loader").fadeOut('fast', function() {
-        var pathArray = window.location.pathname.split('/');
-        var page = pathArray[1];
-        $('body').css('overflow', 'auto');
-    });
-});
-*/
 
 // share on facebook
 function fbShare() {

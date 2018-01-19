@@ -56,7 +56,9 @@
                         {{{date}}}
                     </div>
                     <h3 class="news-card-title fontchange">
-                        <a href="/news/index/{{slug_<?=LANG?>}}">{{title_<?=LANG?>}}</a>
+                        <a href="/news/index/{{slug_<?=LANG?>}}">
+                            {{title_<?=LANG?>}}
+                        </a>
                     </h3>
                     <div class="news-card-tags-wrap">
                         {{#categories}}

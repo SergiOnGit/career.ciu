@@ -197,6 +197,12 @@
                 <li class="<?php if($this->uri->segment(2) == 'news_cats') echo "active"; ?>">
                     <a href="<?=site_url('admin/news_cats')?>"> <span class="nav-label">სიახლის კატეგორიები</span> </a>
                 </li>
+                <li class="<?php if($this->uri->segment(2) == 'vacancy') echo "active"; ?>">
+                    <a href="<?=site_url('admin/vacancy')?>"> <span class="nav-label">ვაკანსიები</span> </a>
+                </li>
+                <li class="<?php if($this->uri->segment(2) == 'vacancy_cats') echo "active"; ?>">
+                    <a href="<?=site_url('admin/vacancy_cats')?>"> <span class="nav-label">ვაკანსიის კატეგორიები</span> </a>
+                </li>
                 <li class="<?php if($this->uri->segment(2) == 'announces') echo "active"; ?>">
                     <a href="<?=site_url('admin/announces')?>"> <span class="nav-label">ანონსები</span> </a>
                 </li>

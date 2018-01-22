@@ -19,7 +19,7 @@
                 <div>
                     <div class="pages-filter-inp-wrap">
                         <select class="pages-filter-inp select2" id="news-filter-cat">
-                            <option value=""><?=$translate['category']?></option>
+                            <option value=""><?=$translate['all']?></option>
                             <?php
                                 foreach($news_categories as $category):
                                     if($this->input->get('cat') == $category['id']) {

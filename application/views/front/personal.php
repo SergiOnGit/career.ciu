@@ -19,7 +19,7 @@
                 <div>
                     <div class="pages-filter-inp-wrap">
                         <select class="pages-filter-inp select2" id="personal-filter-rank">
-                            <option value=""><?=$translate['direction']?></option>
+                            <option value=""><?=$translate['all']?></option>
                             <?php foreach($directions as $direction): ?>
                             <option value="<?=$direction['id']?>"><?=$direction['title_'.LANG]?></option>
                             <?php endforeach; ?>
@@ -29,7 +29,7 @@
                 <div>
                     <div class="pages-filter-inp-wrap">
                         <select class="pages-filter-inp select2" id="personal-filter-faculty">
-                            <option value=""><?=$translate['faculty']?></option>
+                            <option value=""><?=$translate['all']?></option>
                             <?php foreach($faculties as $faculty): ?>
                             <option value="<?=$faculty['id']?>"><?=$faculty['title_'.LANG]?></option>
                             <?php endforeach; ?>

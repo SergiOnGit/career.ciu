@@ -568,6 +568,129 @@ jQuery(document).ready(function($) {
         newsFilter();
     }
 
+    // all vacancy filtering
+    if(page == 'all_vacancy') {
+        var newsSearchFilter = $('#news-search-filter');
+        var newsFilterCat = $('#news-filter-cat');
+        var newsChosenCat = $('#news-chosen-cat');
+        var newsDatepicker = $('#datepicker');
+        var template = $('#template').html();
+        var loadNewsCards = $('#load-news-cards');
+        var cardsLoader = $('#cards-loader');
+        var nodata = $('#nodata');
+        var newsOffset = 0;
+        var disableLoadMore = false;
+
+        var url = new URL(window.location.href);
+        var newsFilterCatGet = url.searchParams.get("cat");
+
+        newsSearchFilter.keyup(function(event) {
+            if (event.keyCode == 27) {
+                newsSearchFilter.val('');
+            }
+            newsFilter();
+        });
+
+        newsFilterCat.change(function(event) {
+            if($("#news-filter-cat option:selected").val() != '') {
+                newsChosenCat.text('- '+$("#news-filter-cat option:selected").text());
+            } else {
+                newsChosenCat.text('');
+                newsFilterCatGet = '';
+            }
+            newsFilter();
+        });
+
+        newsDatepicker.change(function(event) {
+            newsFilter();
+        });
+
+        newsDatepicker.keyup(function(event) {
+            newsFilter();
+        });
+
+        if($(window).width() > 767) {
+            var nearBottom = 50;
+        } else {
+            var nearBottom = 150;
+        }
+
+        $(window).scroll(function() {
+            if ($(window).scrollTop() + $(window).height() > $(document).height() - nearBottom) {
+                if(!disableLoadMore) {
+                    newsFilter(true);
+                }
+            }
+        });
+
+        function newsFilter(more) {
+            if(more) {
+                if(!disableLoadMore) {
+                    newsOffset = newsOffset + 15;
+                }
+            } else {
+                loadNewsCards.empty();
+                newsOffset = 0;
+                disableLoadMore = false;
+            }
+            cardsLoader.show();
+            $.ajax({
+                url: '/all_vacancy/filter',
+                type: 'POST',
+                data: {
+                    lang: config.language,
+                    newsOffset: newsOffset,
+                    newsSearchFilter: $(newsSearchFilter).val(),
+                    newsFilterCat: $(newsFilterCat).val(),
+                    newsFilterCatGet: newsFilterCatGet,
+                    newsDatepicker: $(newsDatepicker).val()
+                },
+            }).done(function(res) {
+                var response = jQuery.parseJSON(res);
+
+                response.forEach(function(element, index) {
+                    if(element.category) {
+                        element.category = element.category.split(',');
+                    }
+                    let D = '<div>' + moment(element.date).format('D') + '</div>';
+                    let MMM = '<div>' + moment(element.date).format('MMM') + '</div>';
+                    element.date = D + MMM;
+                });
+
+                if(!more) {
+                    loadNewsCards.empty();
+                    disableLoadMore = false;
+                }
+                
+                var rendered = Mustache.to_html(template, { data: response });
+                loadNewsCards.append(rendered);
+
+                $('.news-card-title, .news-card-img').hover(function() {
+                    $(this).parents('.news-card').addClass('hover');
+                }, function() {
+                    $('.news-card').removeClass('hover');
+                });
+                $('.news-card-title a').trunk8({
+                   lines: 3
+                });
+
+                if(response.length == 0) {
+                    disableLoadMore = true;
+                    if(newsOffset == 0) {
+                        loadNewsCards.empty();
+                        nodata.appendTo(loadNewsCards).show();
+                    }
+                } else {
+                    disableLoadMore = false;
+                    nodata.hide();
+                }
+                cardsLoader.hide();
+            });
+        }
+
+        newsFilter();
+    }
+
     // personal filtering
     if(page == 'personal') {
         var personalSearchFilter = $('#personal-search-filter');

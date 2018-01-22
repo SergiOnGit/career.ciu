@@ -77,7 +77,7 @@ if($_SERVER['SERVER_NAME'] == 'career.ciu.ge') {
 	$hostname = 'localhost';
 	$username = 'root';
 	$password = '';
-	$database = 'alumni_ciu';
+	$database = 'career_ciu';
 } else {
 	$hostname = 'mysql.hostinger.com';
 	$username = 'u256447530_scar';

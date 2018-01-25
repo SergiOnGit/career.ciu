@@ -397,7 +397,8 @@ a, a:hover {
 .header-fb-link {
     margin-right: 5px;
     height: 44px;
-    padding: 8px 11px 4px;
+    padding: 4px 11px 0px;
+    margin-top: -5px;
     color: #fff;
     font-size: 24px;
     transition: 0.2s;

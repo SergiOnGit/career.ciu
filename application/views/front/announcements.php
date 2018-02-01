@@ -5,11 +5,12 @@
             <ul class="uk-breadcrumb">
                 <li><a href="/"><?=$translate['main']?></a></li>
                 <li><a href="/all_news"><?=$translate['all_announcements']?></a></li>
-                <li><a class="uk-active"><?=$data['title_'.LANG] ?></a></li>
+                <?php if($data['title_'.LANG]) { ?><li><a class="uk-active"><?=$data['title_'.LANG] ?></a></li><?php } ?>
             </ul>
         </div>
 
         <div class="uk-grid">
+            <?php if($data['title_'.LANG]) { ?>
             <div class="uk-width-large-1-4 uk-width-medium-3-10">
                 <div class="related-news">
                     <header class="block-header">
@@ -34,8 +35,10 @@
                     </div>
                 </div>
             </div>
-            <div class="uk-width-large-1-2 uk-width-medium-7-10 middle-grid">
+            <?php } ?>
+            <div class="uk-width-large-<?=($data['title_'.LANG]) ? '1-4' : '3-4'; ?> uk-width-medium-7-10 middle-grid">
                 <div class="page-data">
+                    <?php if($data['title_'.LANG]) { ?>
                     <header class="text-page-haeder">
                         <h1 class="text-page-title"><?=$data['title_'.LANG] ?></h1>
                         <div class="uk-grid">
@@ -59,8 +62,11 @@
                     </header>
 
                     <div id="print-area">
-                    	<?=$data['text_'.LANG] ?>
+                        <?=$data['text_'.LANG] ?>
                     </div>
+                    <?php } else { ?>
+                    <h3><?=$translate['not_found']?></h3>
+                    <?php } ?>
                 </div>
             </div>
             <div class="uk-width-large-1-4 uk-width-medium-1-1">

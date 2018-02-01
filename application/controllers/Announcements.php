@@ -11,14 +11,13 @@ class Announcements extends CI_Controller {
 	{
 		if($slug !== null)
 			$data['data'] = $this->Front_announcements_model->getBySlug(urldecode($slug));
-		else $data['data'] = $this->Front_announcements_model->getLast();
+		else
+			$data['data'] = $this->Front_announcements_model->getLast();
 
 
 		if($data['data']['slug_'.LANG] != urldecode($slug)) {
-				redirect(site_url('/announcements/index/'.$data['data']['slug_'.LANG].'?lang='.LANG));
+			redirect(site_url('/announcements/index/'.$data['data']['slug_'.LANG].'?lang='.LANG));
 		}
-		if($data['data']['active_'.LANG] != 1)
-			redirect($_SERVER['HTTP_REFERER']);
 
 
 		/* STATIC WORDS TRANSLATIONS */

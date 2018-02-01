@@ -725,8 +725,8 @@ button.header-search-btn {
 .menu-item-link i {
     display: none;
     position: absolute;
-    right: 7px;
-    top: 18px;
+    right: 6px;
+    top: 22px;
 }
 .menu-sub-list {
     opacity: 0;

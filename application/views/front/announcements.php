@@ -36,7 +36,7 @@
                 </div>
             </div>
             <?php } ?>
-            <div class="uk-width-large-<?=($data['title_'.LANG]) ? '1-4' : '3-4'; ?> uk-width-medium-7-10 middle-grid">
+            <div class="uk-width-large-<?=($data['title_'.LANG]) ? '2-4' : '1-4'; ?> uk-width-medium-7-10 middle-grid">
                 <div class="page-data">
                     <?php if($data['title_'.LANG]) { ?>
                     <header class="text-page-haeder">

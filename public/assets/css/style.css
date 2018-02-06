@@ -1647,9 +1647,6 @@ button.header-search-btn {
     }
 }
 @media (max-width: 767px) {
-    .pages-header-wrap {
-        padding-top: 0;
-    }
     .pages-cards .uk-grid {
         margin-left: -10px;
         margin-bottom: -10px;

@@ -9,7 +9,7 @@ class Front_home_model extends CI_Model {
 						', link_'.LANG.
 						', target_'.LANG.
 						', active_'.LANG.
-						', image, video, sort');
+						', image, video, sort, video_in_cover');
 		$this->db->from('slider');
 		$this->db->order_by('sort', 'ASC');
 		$this->db->where('active_'.LANG, 1);

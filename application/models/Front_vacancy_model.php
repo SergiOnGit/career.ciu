@@ -6,15 +6,15 @@ class Front_vacancy_model extends CI_Model {
 		$this->db->select('slug_'.$this->input->post('lang').', title_'.$this->input->post('lang').', category, date, image');
 		$this->db->from('vacancy');
 		$this->db->where('active_'.$this->input->post('lang'), 1);
-		if(!empty($this->input->post('vacancySearchFilter'))):
-			$this->db->like('title_'.$this->input->post('lang'), $this->input->post('vacancySearchFilter'));
+		if(!empty($this->input->post('newsSearchFilter'))):
+			$this->db->like('title_'.$this->input->post('lang'), $this->input->post('newsSearchFilter'));
 		endif;
-		if(!empty($this->input->post('vacancyFilterCat')) || !empty($this->input->post('vacancyFilterCatGet'))):
-			$vacancyFilterCat = $this->input->post('vacancyFilterCat') ? $this->input->post('vacancyFilterCat') : $this->input->post('vacancyFilterCatGet');
-			$this->db->like('category', $vacancyFilterCat, 'both');
+		if(!empty($this->input->post('newsFilterCat')) || !empty($this->input->post('newsFilterCatGet'))):
+			$newsFilterCat = $this->input->post('newsFilterCat') ? $this->input->post('newsFilterCat') : $this->input->post('newsFilterCatGet');
+			$this->db->like('category', $newsFilterCat, 'both');
 		endif;
-		if(!empty($this->input->post('vacancyDatepicker'))):
-			$this->db->like('date', $this->input->post('vacancyDatepicker'));
+		if(!empty($this->input->post('newsDatepicker'))):
+			$this->db->like('date', $this->input->post('newsDatepicker'));
 		endif;
 		$this->db->order_by('date', 'DESC');
 		$this->db->limit(15, $this->input->post('vacancyOffset'));

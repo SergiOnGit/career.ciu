@@ -6,21 +6,17 @@
             <ul class="uk-slideshow uk-overlay-active">
                 <?php foreach($slider as $row): ?>
                 <li>
-                    <?php if($row['video_in_cover'] == '0'): ?>
-                        <img src="<?=$row['image']?>" alt="<?=$row['title_'.LANG]?>">
-                    <?php else: ?>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?=str_replace('https://www.youtube.com/watch?v=','',$row['video'])?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    <?php endif; ?>
+                    <img src="<?=$row['image']?>" alt="<?=$row['title_'.LANG]?>">
                     <div class="uk-overlay-panel uk-overlay-fade uk-flex uk-flex-left uk-flex-top uk-padding-remove">
                         <div class="slider-caption-box-wrap">
-                            <h3 class="slider-caption-title <?php if($row['video'] && $row['video_in_cover'] == '0') { echo 'hasvideo'; } ?>">
+                            <h3 class="slider-caption-title <?php if($row['video']) { echo 'hasvideo'; } ?>">
                                 <?php if($row['link_'.LANG]) { ?>
                                     <a href="<?=$row['link_'.LANG]?>" target="<?=$row['target_'.LANG]?>"><?=$row['title_'.LANG]?></a>
                                 <?php } else { ?>
                                     <?=$row['title_'.LANG]?>
                                 <?php } ?>
 
-                                <?php if($row['video'] && $row['video_in_cover'] == '0') { ?>
+                                <?php if($row['video']) { ?>
                                 <a href="<?=$row['video']?>" data-uk-lightbox class="slider-video-btn">
                                     <img class="slider-video-icon" src="/public/assets/images/video-play.png" alt="video icon">
                                 </a>

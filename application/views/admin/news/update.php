@@ -5,20 +5,6 @@
                 <div class="panel-body">
                     <form method="post" action="<?=current_url()?>">
                         <div class="form-group">
-                            <label class="help-block">ფავორიტი</label>
-                            <div>
-                                <div class="radio radio-info radio-inline">
-                                    <input type="radio" id="favoriteY" name="favorite" value="1" <?php if($item['favorite'] == '1') { echo "checked"; } ?> >
-                                    <label for="favoriteY">დიახ</label>
-                                </div>
-                                <div class="radio radio-info radio-inline">
-                                    <input type="radio" id="favoriteN" name="favorite" value="0" <?php if($item['favorite'] == '0') { echo "checked"; } ?> >
-                                    <label for="favoriteN">არა</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hr-line-dashed"></div>
-                        <div class="form-group">
                             <label class="help-block">კატეგორია</label>
                             <div>
                                 <select class="form-control m-b js-select" name="category[]" value="<?=$item['category']?>" multiple required>

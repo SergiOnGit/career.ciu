@@ -34,8 +34,9 @@ jQuery(document).ready(function($) {
 
         $(start_date).empty();
         $(end_date).empty();
-        $(start_date).append(moment(start_text).format('D MMMM') + ' - ');
-        $(end_date).append(moment(end_text).format('D MMMM'));
+        $(start_date).append(moment(start_text).format('D MMMM'));
+        if(end_text != '0000-00-00 00:00:00')
+        $(end_date).append(' - ' + moment(end_text).format('D MMMM'));
     });
 
     var menuWrap = $('#menu-wrap');

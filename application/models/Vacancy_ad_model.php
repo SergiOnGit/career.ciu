@@ -85,8 +85,7 @@ class Vacancy_ad_model extends CI_Model {
 				'category' => implode(',', $this->input->post('category')),
 				'lector' => implode(',', $this->input->post('lector')),
 				'image' => $this->input->post('image'),
-				'image_paths' => $this->input->post('image_paths'),
-				'favorite' => $this->input->post('favorite')
+				'image_paths' => $this->input->post('image_paths')
 			)
 		);
 		return $this->db->insert_id();
@@ -165,8 +164,7 @@ class Vacancy_ad_model extends CI_Model {
 				'category' => implode(',', $this->input->post('category')),
 				'lector' => implode(',', $this->input->post('lector')),
 				'image' => $this->input->post('image'),
-				'image_paths' => $this->input->post('image_paths'),
-				'favorite' => $this->input->post('favorite')
+				'image_paths' => $this->input->post('image_paths')
 			)
 		);
 	}

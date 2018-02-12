@@ -38,9 +38,9 @@
 						                </div>
 						                <div class="hr-line-dashed"></div>
 						                <div class="form-group">
-						                	<label class="help-block">ბმული (დაურთეთ http://)</label>
+						                	<label class="help-block">ბმული</label>
 						                    <div>
-						                    	<input type="url" name="link_<?=$lang['code']?>" class="form-control">
+						                    	<input type="text" name="link_<?=$lang['code']?>" class="form-control">
 						                    </div>
 						                </div>
 						                <div class="form-group">

@@ -12,9 +12,9 @@
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
-		                	<label class="help-block">ბმული (დაურთეთ http://)</label>
+		                	<label class="help-block">ბმული</label>
 		                    <div>
-		                    	<input type="url" required="" name="link" class="form-control" value="<?=$item['link']?>">
+		                    	<input type="text" required="" name="link" class="form-control" value="<?=$item['link']?>">
 		                    </div>
 		                </div>
 		                <div class="hr-line-dashed"></div>

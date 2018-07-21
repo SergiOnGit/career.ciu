@@ -104,17 +104,17 @@ class News extends CI_Controller {
 
 			}
 
-			if($_SERVER['SERVER_NAME'] == 'science.ciu.ge') {
+			if($_SERVER['SERVER_NAME'] == 'career.ciu.ge') {
 				$url = 'http://ciu.ge/subdomains_add/news';
-				$domain = 'http://science.ciu.ge';
+				$domain = 'http://career.ciu.ge';
 			} else {
-				$url = 'http://ciu.edu.ge/subdomains_add/news';
-				$domain = 'http://science.ciu.edu.ge';
+				$url = 'http://new.ciu.edu.ge/subdomains_add/news';
+				$domain = 'http://career.ciu.edu.ge';
 			}
 
 			$posted_data = $this->input->post();
 			$posted_data['category'] = '';
-			$posted_data['source'] = 'science.ciu.edu.ge';
+			$posted_data['source'] = 'career.ciu.edu.ge';
 			$posted_data['image'] = $domain.$posted_data['image'];
 
 			$image_new_paths = array();
@@ -140,7 +140,7 @@ class News extends CI_Controller {
 
 			$cat_names = implode(',', $new_cat_names);
 
-			$posted_data['source_cat'] = $new_cat_names;
+			$posted_data['source_cat'] = $cat_names;
 
 			$data = $posted_data;
 

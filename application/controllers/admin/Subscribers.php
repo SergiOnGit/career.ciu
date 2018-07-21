@@ -58,19 +58,20 @@ class Subscribers extends CI_Controller {
 			$this->load->library('email');
 			$config = array(
 			   	'protocol' => 'smtp',
-			    'smtp_host' => 'mx1.hostinger.com',
-			    'smtp_port' => '587',
-				'smtp_crypto' => 'tls',
-			    'smtp_user' => 'info@seradmin.indygo.ge',
-			    'smtp_pass' => 'Seradmin123;',
+			    'smtp_host' => $this->config->item('smtp_host'),
+			    'smtp_port' => $this->config->item('smtp_port'),
+				'smtp_crypto' => $this->config->item('smtp_crypto'),
+			    'smtp_user' => $this->config->item('smtp_user'),
+			    'smtp_pass' => $this->config->item('smtp_pass'),
 			    'mailtype'  => 'html',
 			    'charset'   => 'utf-8'
 			);
 			$this->email->initialize($config);
-			
+		
+			$category = json_decode($this->input->post('category'), True);
+
 			foreach ($data['all_subscribers'] as $row) {
-				$category = json_decode($this->input->post('category'), True);
-				if($category === null || $row['category'] == $category['id']) {
+				if($this->input->post('category') == 'all' || $row['category'] == $category['id']) {
 					$this->email->clear();
 
 					$this->email->to($row['email']);
@@ -87,6 +88,7 @@ class Subscribers extends CI_Controller {
 		                </div>"
 					);
 					$this->email->send();
+					echo $this->email->print_debugger();
 				}
 			}
 			redirect(current_url());
@@ -105,7 +107,7 @@ class Subscribers extends CI_Controller {
 	{
 		$response = $this->Subscribers_ad_model->unsubscribe();
 		echo "სიახლეების მიღება გაუქმებულია!";
-		header("refresh:2; url=http://ciu.edu.ge");
+		header("refresh:2; url=http://career.ciu.edu.ge");
 	}
 
 }

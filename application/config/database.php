@@ -80,9 +80,9 @@ if($_SERVER['SERVER_NAME'] == 'career.ciu.ge') {
 	$database = 'career_ciu';
 } else {
 	$hostname = 'mysql.hostinger.com';
-	$username = 'u256447530_scar';
+	$username = 'u412464072_car';
 	$password = 'Career123;';
-	$database = 'u256447530_scar';
+	$database = 'u412464072_car';
 }
 
 $db['default'] = array(

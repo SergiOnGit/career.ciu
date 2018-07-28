@@ -204,4 +204,12 @@ class News_ad_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function getPostSlug($id) {
+		$this->db->select('slug_ge');
+		$this->db->from('news');
+		$this->db->where('id', $id);
+		$query = $this->db->get();
+		return $query->row_array();
+	}
+
 }

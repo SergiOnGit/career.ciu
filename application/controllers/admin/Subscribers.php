@@ -71,24 +71,23 @@ class Subscribers extends CI_Controller {
 			$category = json_decode($this->input->post('category'), True);
 
 			foreach ($data['all_subscribers'] as $row) {
-				if($this->input->post('category') == 'all' || $row['category'] == $category['id']) {
+				if($this->input->post('category') == 'all' || in_array($category['id'], explode(',', $row['category']))) {
 					$this->email->clear();
 
 					$this->email->to($row['email']);
-					$this->email->from($this->config->item('smtp_host'));
+					$this->email->from($this->config->item('smtp_user'));
 					$this->email->subject("სიახლე");
 					$this->email->set_newline("\r\n");
 					$this->email->message($message.
 						"<div style='margin-top: 20px;'>
 		                    <p>აღარ გსურთ ჩვენგან შეტყობინებების მიღება?
 		                        <a href='".site_url('unsubscribe/'.$row['email_hash'])."'>
-		                            <u><unsubscribe>გამოწერის გაუქმება</unsubscribe></u>
+		                            <u>გამოწერის გაუქმება</u>
 		                        </a>
 		                    </p>
 		                </div>"
 					);
 					$this->email->send();
-					echo $this->email->print_debugger();
 				}
 			}
 			redirect(current_url());

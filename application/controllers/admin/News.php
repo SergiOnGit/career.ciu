@@ -60,7 +60,8 @@ class News extends CI_Controller {
 		$this->load->view('admin/news/create', $data);
 
 		if($this->input->post()) {
-			$this->News_ad_model->create($data['langs']);
+			$insert_id = $this->News_ad_model->create($data['langs']);
+			$post_slug = $this->News_ad_model->getPostSlug($insert_id);
 			if($this->input->post('notification') == 1) {
 				// send browser notification
 			}
@@ -81,27 +82,31 @@ class News extends CI_Controller {
 				$this->email->initialize($config);
 				
 				foreach ($data['all_subscribers'] as $row) {
-					if($this->input->post('category') === null || $row['category'] == $this->input->post('category')) {
+					if($this->in_array_any($this->input->post('category'), explode(',', $row['category']))) {
 						$this->email->clear();
 
 						$this->email->to($row['email']);
-						$this->email->from($this->config->item('smtp_host'));
+						$this->email->from($this->config->item('smtp_user'));
 						$this->email->subject("სიახლე");
 						$this->email->set_newline("\r\n");
-						$this->email->message('<h1>'.$this->input->post('title_ge').'</h1><p>'.$this->input->post('descr_ge').'</p>'.
-							"<div style='margin-top: 20px;'>
+						$this->email->message(
+							'<h1>'.$this->input->post('title_ge').'</h1><p>'.$this->input->post('descr_ge').'</p>'.
+							"<p>
+		                        <a href='".site_url('news/index/'.$post_slug['slug_ge'])."'>
+		                            <u>სრულად ნახვა</u>
+		                        </a>
+		                    </p>
+			                <div style='margin-top: 20px;'>
 			                    <p>აღარ გსურთ ჩვენგან შეტყობინებების მიღება?
 			                        <a href='".site_url('unsubscribe/'.$row['email_hash'])."'>
-			                            <u><unsubscribe>გამოწერის გაუქმება</unsubscribe></u>
+			                            <u>გამოწერის გაუქმება</u>
 			                        </a>
 			                    </p>
 			                </div>"
 						);
-
 						$this->email->send();
 					}
 				}
-
 			}
 
 			if($_SERVER['SERVER_NAME'] == 'career.ciu.ge') {
@@ -183,4 +188,8 @@ class News extends CI_Controller {
 		redirect(base_url().'admin/news');
 	}
 
+	function in_array_any($needles, $haystack) {
+	   	return (bool)array_intersect($needles, $haystack);
+	}
+	
 }

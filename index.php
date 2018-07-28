@@ -53,7 +53,13 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	if($_SERVER['SERVER_NAME'] == 'career.ciu.edu.ge') {
+		$setEnv = 'production';
+	} else {
+		$setEnv = 'development';
+	}
+
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : $setEnv);
 
 /*
  *---------------------------------------------------------------

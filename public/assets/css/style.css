@@ -625,7 +625,7 @@ button.header-search-btn {
     .menu-icon {
         width: 22px;
         text-align: center;
-        color: #3d3d3d;
+        color: #fff;
         font-size: 25px;
     }
     .header-logo-box {
@@ -779,7 +779,7 @@ button.header-search-btn {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #e8e8e8;
+        background: #30231d;
         height: auto;
     }
     .header-lang-box.mobile {

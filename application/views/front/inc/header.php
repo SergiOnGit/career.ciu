@@ -70,7 +70,7 @@
     <!-- CLNDR CSS -->
     <link rel="stylesheet" href="/public/assets/css/clndr.css">
     <!--  CUSTOM CSS -->
-    <link rel="stylesheet" href="/public/assets/css/style.css?v=<?=RAND()?>">
+    <link rel="stylesheet" href="/public/assets/css/style.css?v=2">
 
     <?php
     if(LANG != 'ge') {
@@ -148,13 +148,8 @@
                             <div class="header-lang-box-dropdown">
                                 <?php if(LANG == 'ge') { ?>
                                 <a href="<?=current_url()?>?lang=en">ENG</a>
-                                <a href="<?=current_url()?>?lang=ru">РУС</a>
                                 <?php } else if(LANG == 'en') { ?>
                                 <a href="<?=current_url()?>?lang=ge">GEO</a>
-                                <a href="<?=current_url()?>?lang=ru">РУС</a>
-                                <?php } else if(LANG == 'ru') { ?>
-                                <a href="<?=current_url()?>?lang=ge">GEO</a>
-                                <a href="<?=current_url()?>?lang=en">ENG</a>
                                 <?php } ?>
                             </div>
                         </div>
@@ -206,15 +201,10 @@
 	            </button>
 	            <div class="header-lang-box-dropdown">
 	                <?php if(LANG == 'ge') { ?>
-	                <a href="/?lang=en">ENG</a>
-	                <a href="/?lang=ru">РУС</a>
-	                <?php } else if(LANG == 'en') { ?>
-	                <a href="/?lang=ge">GEO</a>
-	                <a href="/?lang=ru">РУС</a>
-	                <?php } else if(LANG == 'ru') { ?>
-	                <a href="/?lang=ge">GEO</a>
-	                <a href="/?lang=en">ENG</a>
-	                <?php } ?>
+                    <a href="<?=current_url()?>?lang=en">ENG</a>
+                    <?php } else if(LANG == 'en') { ?>
+                    <a href="<?=current_url()?>?lang=ge">GEO</a>
+                    <?php } ?>
 	            </div>
 	        </div>
     	</div>

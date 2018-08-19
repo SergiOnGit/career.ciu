@@ -63,8 +63,10 @@ class News extends CI_Controller {
 			$insert_id = $this->News_ad_model->create($data['langs']);
 			$post_slug = $this->News_ad_model->getPostSlug($insert_id);
 			if($this->input->post('notification') == 1) {
-				// send browser notification
+				// onesignal
+				$this->sendNotification($this->input->post(), $post_slug);
 			}
+			
 			if($this->input->post('send_newsletter') == 1) {
 				// send emails
 				$data['all_subscribers'] = $this->Subscribers_ad_model->read_all_nolimit();
@@ -190,6 +192,44 @@ class News extends CI_Controller {
 
 	function in_array_any($needles, $haystack) {
 	   	return (bool)array_intersect($needles, $haystack);
+	}
+
+	function sendNotification($data, $post_slug) {
+        $heading = array(
+            "en" => 'research.ciu.edu.ge'
+        );
+
+        $content = array(
+            "en" => $data['title_ge']
+        );
+
+        $fields = array(
+            'app_id' => "7ab1e012-32ca-42fa-a296-28c7c35ece97",
+            'included_segments' => array('All'),
+            'url' => base_url().'news/index/'.$post_slug['slug_ge'],
+            'chrome_web_icon' => base_url().ltrim($data['image'], '/'),
+            'firefox_icon' => base_url().ltrim($data['image'], '/'),
+            'headings' => $heading,
+            'contents' => $content
+        );
+
+        $fields = json_encode($fields);
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
+        curl_setopt($ch, CURLOPT_HTTPHEADER,
+        				 array('Content-Type: application/json; charset=utf-8',
+        				 	   'Authorization: Basic YmIwZTkyOTAtZjA1Ni00N2M3LWJiMzctZjQ1YjdmMzk5Njgy'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+        
+        return $response;
 	}
 	
 }

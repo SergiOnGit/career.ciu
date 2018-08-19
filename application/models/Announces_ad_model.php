@@ -162,4 +162,12 @@ class Announces_ad_model extends CI_Model {
 		$this->db->delete('announces');
 	}
 
+	public function getPostSlug($id) {
+		$this->db->select('slug_ge');
+		$this->db->from('announces');
+		$this->db->where('id', $id);
+		$query = $this->db->get();
+		return $query->row_array();
+	}
+
 }

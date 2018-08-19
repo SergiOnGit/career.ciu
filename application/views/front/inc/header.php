@@ -84,6 +84,82 @@
         language: '<?=LANG?>'
     };
     </script>
+
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+    <script>
+    var config = {
+        base_url: '<?=base_url()?>',
+        language: '<?=LANG?>'
+    };
+
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(["init", {
+        appId: "7ab1e012-32ca-42fa-a296-28c7c35ece97",
+        autoRegister: false, /* Set to true to automatically prompt visitors */
+        subdomainName: 'career_ciu.onesignal.com',
+        /*
+        subdomainName: Use the value you entered in step 1.4: http://imgur.com/a/f6hqN
+        */
+        httpPermissionRequest: {
+            enable: true
+        },
+        notifyButton: {
+            enable: true /* Set to false to hide */
+        },
+        notifyButton: {
+            enable: true, /* Required to use the notify button */
+            size: 'medium', /* One of 'small', 'medium', or 'large' */
+            theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
+            position: 'bottom-left', /* Either 'bottom-left' or 'bottom-right' */
+            showCredit: false, /* Hide the OneSignal logo */
+            <?php if(LANG == 'ge'): ?>
+            text: {
+                'tip.state.unsubscribed': 'გამოიწერეთ ახალი ამბები ბრაუზერში',
+                'tip.state.subscribed': "თქვენ გამოწერილი გაქვთ ახალი ამბები",
+                'tip.state.blocked': "თქვენ გააუქმეთ ახალი ამბები",
+                'message.prenotify': 'გამოწერა',
+                'message.action.subscribed': "გმადლობთ გამოწერისთვის!",
+                'message.action.resubscribed': "თქვენ გამოიწერეთ ახალი ამბები",
+                'message.action.unsubscribed': "თქვენ აღარ მიიღებთ შეტყობინებებს",
+                'dialog.main.title': 'სიახლეების გამოწერა',
+                'dialog.main.button.subscribe': 'გამოწერა',
+                'dialog.main.button.unsubscribe': 'გაუქმება',
+                'dialog.blocked.title': 'შეტყობინებების ჩართვა',
+                'dialog.blocked.message': "შეტყობინებების ჩასართავად მიყევით ინსტრუქციებს:"
+            }
+            <?php endif; ?>
+        },
+        <?php if(LANG == 'ge'): ?>
+        welcomeNotification: {
+            "title": "<?=$title?>",
+            "message": "გმადლობთ გამოწერისთვის!",
+        },
+        httpPermissionRequest: {
+            modalTitle: 'გმადლობთ გამოწერისთვის',
+            modalMessage: "თქვენ გამოწერილი გაქვთ ახალი ამბები.",
+            modalButtonText: 'დახურვა'
+        },
+        promptOptions: {
+            /* These prompt options values configure both the HTTP prompt and the HTTP popup. */
+            /* actionMessage limited to 90 characters */
+            actionMessage: "გსურთ მიიღოთ შეტყობინებები ჩვენი სიახლეების შესახებ?",
+            /* acceptButtonText limited to 15 characters */
+            acceptButtonText: "დიახ",
+            /* cancelButtonText limited to 15 characters */
+            cancelButtonText: "არა"
+        }
+        <?php endif; ?>
+    }]);
+    </script>
+    <style>
+    #onesignal-bell-container.onesignal-reset .onesignal-bell-launcher.onesignal-bell-launcher-bottom-left {
+        bottom: 12px !important;
+        left: 15px !important;
+    }
+    #onesignal-bell-container.onesignal-reset .onesignal-bell-launcher.onesignal-bell-launcher-sm {
+        bottom: 19px !important;
+    }
+    </style>
 </head>
 <body class="<?=$this->uri->segment(1)?>">
     <div id="fb-root"></div>

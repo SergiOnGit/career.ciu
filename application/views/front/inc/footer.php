@@ -2,7 +2,7 @@
         <div class="wrap">
             <div class="uk-grid">
                 <div class="uk-width-1-2 uk-width-medium-3-10">
-                    ONESIGNAL
+                    
                 </div>
                 <div class="uk-width-medium-4-10">
                     <p class="copyright">&copy; <?=$translate['copyright']?></p>

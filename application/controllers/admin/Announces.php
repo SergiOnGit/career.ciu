@@ -129,8 +129,6 @@ class Announces extends CI_Controller {
             'app_id' => "7ab1e012-32ca-42fa-a296-28c7c35ece97",
             'included_segments' => array('All'),
             'url' => base_url().'announcements/index/'.$post_slug['slug_ge'],
-            'chrome_web_icon' => base_url().ltrim($data['image'], '/'),
-            'firefox_icon' => base_url().ltrim($data['image'], '/'),
             'headings' => $heading,
             'contents' => $content
         );

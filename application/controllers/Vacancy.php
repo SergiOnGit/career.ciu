@@ -20,6 +20,7 @@ class Vacancy extends CI_Controller {
 
 		/* STATIC WORDS TRANSLATIONS */
 		$data['translate'] = $this->Front_model->translations();
+		$data['socials'] = $this->Front_model->socials();
 
 		/* GOOGLE FORMS */
 		$data['google_forms_link'] = $this->Front_model->google_forms_link();

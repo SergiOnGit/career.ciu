@@ -229,9 +229,13 @@
                                 <?php } ?>
                             </div>
                         </div>
-                        <a href="#" target="_blank" class="header-fb-link">
-                            <i class="uk-icon-facebook-official"></i>
+                        
+                        <?php foreach($socials as $row): ?>
+                        <a href="<?=$row['link']?>" target="<?=$row['target']?>" class="header-fb-link">
+                            <i class="uk-icon-<?=str_replace('fa-','',$row['icon']);?>"></i>
                         </a>
+                        <?php endforeach; ?>
+                        
                         <div class="header-search-box" id="header-search-box">
                             <button type="button" class="header-search-btn" id="header-search-btn">
                                 <i class="uk-icon-search"></i>

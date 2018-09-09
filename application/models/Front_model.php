@@ -55,6 +55,16 @@ class Front_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	/* SOCIALS */
+	public function socials() {
+		$this->db->select('*');
+		$this->db->from('social_icons');
+		$this->db->where('active', 1);
+		$this->db->order_by('sort', 'ASC');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 	/* POLL */
 	public function getPoll()
 	{

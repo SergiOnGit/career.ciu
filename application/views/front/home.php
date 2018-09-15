@@ -2,7 +2,7 @@
 
     <!-- SLIDER -->
     <div class="slider" id="home-slider">
-        <div class="uk-slidenav-position" data-uk-slideshow="{autoplay: false, autoplayInterval:4000, animation: 'fade'}">
+        <div class="uk-slidenav-position" data-uk-slideshow="{autoplay: true, autoplayInterval: 4000, animation: 'fade'}">
             <ul class="uk-slideshow uk-overlay-active">
                 <?php foreach($slider as $row): ?>
                 <li>

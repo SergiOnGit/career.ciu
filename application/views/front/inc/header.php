@@ -10,10 +10,22 @@
 
     <!-- DYNAMIC METAS -->
     <?php
+        if(!empty($_SERVER['QUERY_STRING'])) {
+            $current_url_full = current_url().'?'.$_SERVER['QUERY_STRING'];
+        } else {
+            $current_url_full = current_url();
+        }
+
+        if($this->input->get('lang') && $this->input->get('lang') == 'ge' || !$this->input->get('lang')) {
+            $canonical_url = current_url();
+        } else {
+            $canonical_url = current_url().'?'.$_SERVER['QUERY_STRING'];
+        }
+        
         if(isset($data)) {
             $title = 'career.ciu.edu.ge - '.$data['title_'.LANG];
             if(isset($data['descr_'.LANG])) {
-                $descr = $data['descr_ge'];
+                $descr = $data['descr_'.LANG];
             } else {
                 $descr = '';
             }
@@ -31,14 +43,17 @@
     <title><?=$title?></title>
     <meta name="description" content="<?=$descr?>" />
 
+    <link rel="canonical" href="<?=$canonical_url; ?>" />
+
     <meta property="og:title" content="<?=$title?>" />
     <meta property="og:description" content="<?=$descr?>" />
     <meta property="og:image" content="<?=$image?>" />
 
-    <meta property="og:url" content="<?=base_url()?>" />
+    <meta property="og:url" content="<?=$current_url_full; ?>" />
+    <meta property="og:locale" content="<?=LANG;?>">
     <meta property="og:site_name" content="career.ciu.edu.ge" />
     <meta property="og:type" content="website" />
-    <meta property="fb:app_id" content="1907169869568312"/>
+    <meta property="fb:app_id" content="534718170285249"/>
 
     <!-- STATIC METAS -->
     <meta name="robots" content="index, follow" />

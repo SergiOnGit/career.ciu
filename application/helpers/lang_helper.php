@@ -16,11 +16,12 @@
             $c_lang = $base_lang;
             $CI->input->set_cookie('lang', $c_lang, 3600);
         }
+
         if( empty($cookie)) { 
             $CI->input->set_cookie('lang', $c_lang, 3600);
             $cookie = $c_lang;
-            redirect(base_url(uri_string()));
         }
+
         if($cookie != $base_lang && empty($CI->input->get('lang'))) {
             $get_query ="?lang=$c_lang"; 
 
@@ -30,6 +31,7 @@
             }
             redirect(base_url(uri_string()).$get_query);
         }
+
         if($CI->input->get('lang') != $cookie && !empty($CI->input->get('lang')) ) {
             $CI->input->set_cookie('lang', $c_lang, '3600');
         }

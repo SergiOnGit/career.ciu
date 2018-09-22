@@ -405,8 +405,8 @@ $config['sess_regenerate_destroy'] = FALSE;
 $config['smtp_host']	= 'mx1.hostinger.com';
 $config['smtp_port']	= '587';
 $config['smtp_crypto']	= 'tls';
-$config['smtp_user']	= 'info@ciu.edu.ge';
-$config['smtp_pass'] 	= 'Info123;';
+$config['smtp_user']	= 'career@ciu.edu.ge';
+$config['smtp_pass'] 	= '123456';
 
 /*
 |--------------------------------------------------------------------------

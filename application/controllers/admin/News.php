@@ -115,7 +115,7 @@ class News extends CI_Controller {
 				$url = 'http://ciu.ge/subdomains_add/news';
 				$domain = 'http://career.ciu.ge';
 			} else {
-				$url = 'http://new.ciu.edu.ge/subdomains_add/news';
+				$url = 'https://ciu.edu.ge/subdomains_add/news';
 				$domain = 'http://career.ciu.edu.ge';
 			}
 

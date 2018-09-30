@@ -85,11 +85,11 @@
     <!-- CLNDR CSS -->
     <link rel="stylesheet" href="/public/assets/css/clndr.css">
     <!--  CUSTOM CSS -->
-    <link rel="stylesheet" href="/public/assets/css/style.css?v=2">
+    <link rel="stylesheet" href="/public/assets/css/style.css?v=3">
 
     <?php
     if(LANG != 'ge') {
-        echo "<link rel='stylesheet' href='/public/assets/css/en.css?v=<?=RAND()?>'>";
+        echo "<link rel='stylesheet' href='/public/assets/css/en.css?v=3'>";
     }
     ?>
 

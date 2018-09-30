@@ -34,9 +34,9 @@ jQuery(document).ready(function($) {
 
         $(start_date).empty();
         $(end_date).empty();
-        $(start_date).append(moment(start_text).format('D MMMM'));
+        $(start_date).append(moment(start_text, "YYYY-MM-DD").format('D MMMM'));
         if(end_text != '0000-00-00 00:00:00')
-        $(end_date).append(' - ' + moment(end_text).format('D MMMM'));
+        $(end_date).append(' - ' + moment(end_text, "YYYY-MM-DD").format('D MMMM'));
     });
 
     var menuWrap = $('#menu-wrap');
@@ -290,7 +290,7 @@ jQuery(document).ready(function($) {
                             if(target.events.length == 0) 
                                 return false;
                             var targetDate = target.events[0].date;
-                            $("#mini-clndr .events .headers .event-header").html(moment(target.events[0].date).format('D MMMM'));
+                            $("#mini-clndr .events .headers .event-header").html(moment(target.events[0].date, "YYYY-MM-DD").format('D MMMM'));
 
                             $("#mini-clndr .events-list .event").each(function() {
                                 $(this).hide();
@@ -391,14 +391,14 @@ jQuery(document).ready(function($) {
     $('.news-card-date').each(function(index, el) {
         var oldDate = $(this).text();
         $(this).empty();
-        $(this).append('<div>' + moment(oldDate).format('D') + '</div>');
-        $(this).append('<div>' + moment(oldDate).format('MMM') + '</div>');
+        $(this).append('<div>' + moment(oldDate, "YYYY-MM-DD").format('D') + '</div>');
+        $(this).append('<div>' + moment(oldDate, "YYYY-MM-DD").format('MMM') + '</div>');
     });
    	$('.news-date').each(function(index, el) {
         var oldDate = $(this).text();
         $(this).empty();
-        $(this).append(moment(oldDate).format('D')+' ');
-        $(this).append(moment(oldDate).format('MMM'));
+        $(this).append(moment(oldDate, "YYYY-MM-DD").format('D')+' ');
+        $(this).append(moment(oldDate, "YYYY-MM-DD").format('MMM'));
     });
 
     /* personal cards */
@@ -530,8 +530,8 @@ jQuery(document).ready(function($) {
                     if(element.category) {
                         element.category = element.category.split(',');
                     }
-                    let D = '<div>' + moment(element.date).format('D') + '</div>';
-                    let MMM = '<div>' + moment(element.date).format('MMM') + '</div>';
+                    let D = '<div>' + moment(element.date, "YYYY-MM-DD").format('D') + '</div>';
+                    let MMM = '<div>' + moment(element.date, "YYYY-MM-DD").format('MMM') + '</div>';
                     element.date = D + MMM;
                 });
 
@@ -653,8 +653,8 @@ jQuery(document).ready(function($) {
                     if(element.category) {
                         element.category = element.category.split(',');
                     }
-                    let D = '<div>' + moment(element.date).format('D') + '</div>';
-                    let MMM = '<div>' + moment(element.date).format('MMM') + '</div>';
+                    let D = '<div>' + moment(element.date, "YYYY-MM-DD").format('D') + '</div>';
+                    let MMM = '<div>' + moment(element.date, "YYYY-MM-DD").format('MMM') + '</div>';
                     element.date = D + MMM;
                 });
 
@@ -771,8 +771,8 @@ jQuery(document).ready(function($) {
                     if(element.category) {
                         element.category = element.category.split(',');
                     }
-                    let D = '<div>' + moment(element.date).format('D') + '</div>';
-                    let MMM = '<div>' + moment(element.date).format('MMM') + '</div>';
+                    let D = '<div>' + moment(element.date, "YYYY-MM-DD").format('D') + '</div>';
+                    let MMM = '<div>' + moment(element.date, "YYYY-MM-DD").format('MMM') + '</div>';
                     element.date = D + MMM;
                 });
 

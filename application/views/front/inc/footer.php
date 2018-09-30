@@ -50,7 +50,7 @@
     <!-- SELECT2 JS -->
     <script src="/public/assets/bower_components/select2/dist/js/select2.min.js"></script>
     <!-- CUSTOM JS -->
-    <script src="/public/assets/js/main.js?v=2"></script>
+    <script src="/public/assets/js/main.js?v=3"></script>
 
 </body>
 </html>

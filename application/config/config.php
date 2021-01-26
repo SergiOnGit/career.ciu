@@ -118,15 +118,6 @@ $config['enable_hooks'] = FALSE;
 */
 $config['subclass_prefix'] = 'MY_';
 
-
-function __autoload($class)
-{	
-	if(strpos($class,'MY_')!==0){
-		@include_once( APPPATH.'core/'.$class.'.php' );
-	}
-}
-
-
 /*
 |--------------------------------------------------------------------------
 | Composer auto-loading

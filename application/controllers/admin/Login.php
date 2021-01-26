@@ -86,17 +86,17 @@ class Login extends CI_Controller {
 					$this->load->library('email');
 					$config = array(
 					   	'protocol' => 'smtp',
-					    'smtp_host' => 'mx1.hostinger.com',
+					    'smtp_host' => 'smtp.hostinger.com',
 					    'smtp_port' => '587',
 						'smtp_crypto' => 'tls',
-					    'smtp_user' => 'info@seradmin.indygo.ge',
-					    'smtp_pass' => 'Seradmin123;',
+					    'smtp_user' => 'career@ciu.edu.ge',
+					    'smtp_pass' => '123456',
 					    'mailtype'  => 'html',
 					    'charset'   => 'utf-8'
 					);
 					$this->email->initialize($config);
 
-					$this->email->from("info@seradmin.indygo.ge");
+					$this->email->from("career@ciu.edu.ge");
 					$this->email->to($email);
 					$this->email->set_newline("\r\n");
 					$this->email->subject("Password reset");

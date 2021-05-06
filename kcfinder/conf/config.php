@@ -21,7 +21,7 @@ $_CONFIG = array(
 
 // GENERAL SETTINGS
 
-    'disabled' => false,
+    'disabled' => !isset($_COOKIE['ci_session']),
     'uploadURL' => "../uploads/",
     'uploadDir' => "",
     'theme' => "default",
@@ -29,21 +29,21 @@ $_CONFIG = array(
     'types' => array(
 
     // (F)CKEditor types
-        'files'   =>  "",
+        'files'   =>  "*",
         'flash'   =>  "swf",
-        'images'  =>  "*img",
+        'images'  =>  "*",
 
     // TinyMCE types
-        'file'    =>  "",
+        'file'    =>  "*",
         'media'   =>  "swf flv avi mpg mpeg qt mov wmv asf rm",
-        'image'   =>  "*img",
+        'image'   =>  "*",
     ),
 
 
 // IMAGE SETTINGS
 
     'imageDriversPriority' => "imagick gmagick gd",
-    'jpegQuality' => 90,
+    'jpegQuality' => 70,
     'thumbsDir' => ".thumbs",
 
     'maxImageWidth' => 0,

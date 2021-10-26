@@ -397,7 +397,7 @@ $config['smtp_host']	= 'smtp.hostinger.com';
 $config['smtp_port']	= '587';
 $config['smtp_crypto']	= 'tls';
 $config['smtp_user']	= 'career@ciu.edu.ge';
-$config['smtp_pass'] 	= '123456';
+$config['smtp_pass'] 	= 'a12@dsSAD323!d';
 
 /*
 |--------------------------------------------------------------------------

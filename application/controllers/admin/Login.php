@@ -90,7 +90,7 @@ class Login extends CI_Controller {
 					    'smtp_port' => '587',
 						'smtp_crypto' => 'tls',
 					    'smtp_user' => 'career@ciu.edu.ge',
-					    'smtp_pass' => '123456',
+					    'smtp_pass' => 'a12@dsSAD323!d',
 					    'mailtype'  => 'html',
 					    'charset'   => 'utf-8'
 					);

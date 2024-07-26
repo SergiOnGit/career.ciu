@@ -76,7 +76,7 @@ $query_builder = TRUE;
 if($_SERVER['SERVER_NAME'] == 'career.ciu.ge') {
 	$hostname = 'localhost';
 	$username = 'root';
-	$password = '';
+	$password = 'dsaSdajk43;gfdj!ds.cdsDSeE9s,saew.';
 	$database = 'career_ciu';
 } else {
 	$hostname = 'mysql.hostinger.com';

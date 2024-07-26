@@ -56,7 +56,7 @@
 	if($_SERVER['SERVER_NAME'] == 'career.ciu.edu.ge') {
 		$setEnv = 'production';
 	} else {
-		$setEnv = 'development';
+		$setEnv = 'production';
 	}
 
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : $setEnv);

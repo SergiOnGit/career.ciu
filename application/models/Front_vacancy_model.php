@@ -17,7 +17,7 @@ class Front_vacancy_model extends CI_Model {
 			$this->db->like('date', $this->input->post('newsDatepicker'));
 		endif;
 		$this->db->order_by('date', 'DESC');
-		$this->db->limit(15, $this->input->post('vacancyOffset'));
+		$this->db->limit(15, $this->input->post('newsOffset'));
 		$query = $this->db->get();
 		return $query->result_array();
 	}

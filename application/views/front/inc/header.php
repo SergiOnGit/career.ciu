@@ -85,7 +85,7 @@
     <!-- CLNDR CSS -->
     <link rel="stylesheet" href="/public/assets/css/clndr.css">
     <!--  CUSTOM CSS -->
-    <link rel="stylesheet" href="/public/assets/css/style.css?v=3">
+    <link rel="stylesheet" href="/public/assets/css/style.css?v=5">
 
     <?php
     if(LANG != 'ge') {
